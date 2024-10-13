@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Tabs from './components/Tabs';
+import ImageGallery from './components/ImageGallery';
 import './App.css';
 
 function App() {
+  const [selectedTab, setSelectedTab] = useState('Outdoor');
+
+  const handleTabClick = (tab) => {
+    setSelectedTab(tab);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>Bring out the beauty of your products.</h1>
+      <p>As your business grows, so do the complexities of managing your operations. Genie helps you plan better, launch faster, and focus on what matters most—your customers.</p>
+      <Tabs selectedTab={selectedTab} onTabClick={handleTabClick} />
+      <ImageGallery />
     </div>
   );
 }
